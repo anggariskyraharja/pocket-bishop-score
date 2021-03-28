@@ -1,17 +1,58 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
+<ion-header [translucent]="true" >
+  <ion-toolbar >
+    <ion-title >
+      Simplified Bishop Score
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-item class="color11">
+    <ion-text>
+      <p>Calculation of simplified Bishop score based on the 3 most important findings (developed only on nulliparous patients).</p>
+    </ion-text>
+  </ion-item>
+  <ion-item-divider class="color5"></ion-item-divider>
+  <ion-list>
+    <ion-item class="color2">
+      <ion-label><b>Dilation</b></ion-label>
+    </ion-item>
+    <ion-item class="color3">
+      <ion-select value="1" (ionChange)="check1($event)">
+      <ion-select-option value="1">Closed</ion-select-option>
+      <ion-select-option value="2">1-2 cm</ion-select-option>
+      <ion-select-option value="3">3-4 cm</ion-select-option>
+      <ion-select-option value="4">≥5 cm</ion-select-option>
+    </ion-select>
+    </ion-item>
+    <ion-item class="color2">
+      <ion-label><b>Effacement</b></ion-label>
+    </ion-item>
+    <ion-item class="color3">
+      <ion-select value="1" (ionChange)="check2($event)">
+      <ion-select-option value="1">0-30%</ion-select-option>
+      <ion-select-option value="2">40-50%</ion-select-option>
+      <ion-select-option value="3">60-70%</ion-select-option>
+      <ion-select-option value="4">≥80%</ion-select-option>
+    </ion-select>
+    </ion-item>
+    <ion-item class="color2">
+      <ion-label><b>Station</b></ion-label>
+    </ion-item>
+    <ion-item class="color3">
+      <ion-select value="1" (ionChange)="check3($event)">
+      <ion-select-option value="1">-3</ion-select-option>
+      <ion-select-option value="2">-2</ion-select-option>
+      <ion-select-option value="3">-1, 0</ion-select-option>
+      <ion-select-option value="4">+1, +2</ion-select-option>
+    </ion-select>
+    </ion-item>
+    <ion-item-divider class="color5"></ion-item-divider> 
+    <ion-item class="color1">
+      <ion-text>
+          <p>Total simplified Bishop score is: <b>{{ score }} points</b></p>
+          <p><i>{{classification}}</i></p>
+      </ion-text>
+    </ion-item>
+</ion-list>
 </ion-content>
